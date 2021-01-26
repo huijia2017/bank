@@ -56,7 +56,6 @@ class Account:
         def __init__(self):
             self.customers = []
             self.accounts = []
-            self.transfers = []
 
             # self.amount = float(input("How much money would you like to put into the account?(USD): "))
 
@@ -70,23 +69,10 @@ class Account:
             self.accounts.append(a)
             return a
 
-        def create_transfer(self, acc_id_from, acc_id_to, amount):
+       def transfer(self, acc_from, acc_to, amount):
             # TODO - implement it (input parameters are account ids)
-            b = Transfer(acc_id_from, acc_id_to, amount):
-            self.transfers.append(b)
-            return b
-
-        def transfer(self, acc_from, acc_to, amount):
-            # TODO - implement it
-
-            #############################################
-
-            if self.charge(amount) > 0.0:
-                acc_to.deposit(amount)
-                acc_from.charge(amount)
-                return True
-            else:
-                return False
+            account_from.charge(amount)
+            acc_to.deposit(amount)
 
         def __repr__(self):
             return 'Bank(cust: {0}, acc: {1})'.format(self.customers, self.accounts)
